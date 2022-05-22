@@ -35,6 +35,8 @@ reformatAddin <- function() {
         text = context$contents,
         output = FALSE,
         width.cutoff = width,
+        pipe = TRUE,
+        wrap = FALSE,
         indent = indent,
         brace.newline = brace.newline
       )$text.tidy
