@@ -11,7 +11,7 @@ reformatAddin <- function() {
       hr(),
       stableColumnLayout(
         checkboxInput("brace.newline", "Place left braces '{' on a new line?", FALSE),
-        checkboxInput("brace.pipe", "Convert = to <- ?", TRUE),
+        checkboxInput("brace.arrow", "Substitute = with <- ?", TRUE),
         numericInput("indent", "Indent size: ", 2),
         numericInput("width", "Column width: ", 60)
       ),
@@ -30,12 +30,12 @@ reformatAddin <- function() {
       brace.newline <- input$brace.newline
       indent <- input$indent
       width <- input$width
-      pipe = input$brace.pipe
+      arrow = input$brace.arrow
 
       # Build formatted document
       formatted <- formatR::tidy_source(
         text = context$contents,
-        pipe = pipe,
+        arrow = arrow,
         output = FALSE,
         width.cutoff = width,
         wrap = FALSE,
